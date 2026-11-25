@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Datos de transferencia</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 25px;
+  min-height: 100vh;
+  background: #101010;
+  color: #eeeeee;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  background: #1c1c1c;
+  border: 1px solid #454545;
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.logo {
+  text-align: center;
+  color: #bdbdbd;
+  letter-spacing: 5px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.subtitle {
+  text-align: center;
+  color: #888;
+  font-size: 12px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 19px;
+  margin-bottom: 22px;
+}
+
+.data {
+  margin-bottom: 19px;
+}
+
+.label {
+  color: #999;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.value {
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 9px;
+  background: #bdbdbd;
+  color: #111;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:active {
+  opacity: 0.8;
+}
+
+#message {
+  text-align: center;
+  color: #aaa;
+  font-size: 12px;
+  margin-top: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <div class="logo">NOVAT</div>
+  <div class="subtitle">TECNOLOGÍA PARA NEGOCIOS</div>
+
+  <h2>Datos de transferencia</h2>
+
+  <div class="data">
+    <div class="label">Titular</div>
+    <div class="value">Manuel Rocco Valdebenito</div>
+  </div>
+
+  <div class="data">
+    <div class="label">RUT</div>
+    <div class="value">7.621.171-K</div>
+  </div>
+
+  <div class="data">
+    <div class="label">Banco</div>
+    <div class="value">BCI</div>
+  </div>
+
+  <div class="data">
+    <div class="label">Tipo de cuenta</div>
+    <div class="value">Cuenta Corriente</div>
+  </div>
+
+  <div class="data">
+    <div class="label">Número de cuenta</div>
+    <div class="value">21524459</div>
+  </div>
+
+  <div class="data">
+    <div class="label">Correo electrónico</div>
+    <div class="value">manu.edu.roco@gmail.com</div>
+  </div>
+
+  <button onclick="copiarDatos()">
+    COPIAR DATOS
+  </button>
+
+  <div id="message"></div>
+
+</div>
+
+<script>
+async function copiarDatos() {
+
+  const datos = `Titular: Manuel Rocco Valdebenito
+RUT: 7.621.171-K
+Banco: BCI
+Tipo de cuenta: Cuenta Corriente
+Número de cuenta: 21524459
+Correo: manu.edu.roco@gmail.com`;
+
+  const mensaje = document.getElementById("message");
+
+  try {
+    await navigator.clipboard.writeText(datos);
+    mensaje.textContent = "¡Datos copiados correctamente!";
+  } catch (error) {
+    mensaje.textContent = "No se pudo copiar. Intenta nuevamente.";
+  }
+}
+</script>
+
+</body>
+</html>
